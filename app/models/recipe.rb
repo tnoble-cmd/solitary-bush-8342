@@ -1,3 +1,3 @@
 class Recipe < ApplicationRecord
-   validates_presence_of :name, :complexity, :genre
+   validates :name, :complexity, :genre, presence: true
 end
