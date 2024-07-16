@@ -37,6 +37,17 @@ RSpec.describe "Ingredients Index" do
 
     #checks that page renders proper formatting for ingredient name and cost
     expect(page).to have_content("Milk: 4")
+  end
 
+  it "can see ingredients in alphabetical order" do 
+    visit '/ingredients'
+
+    #checks that ingredients are displayed in alphabetical order
+    expect(page).to have_content("Butter")
+    expect(page).to have_content("Eggs")
+    expect(page).to have_content("Flour")
+    expect(page).to have_content("Milk")
+    expect(page).to have_content("Pasta")
+    expect(page).to have_content("Sugar")
   end
 end
