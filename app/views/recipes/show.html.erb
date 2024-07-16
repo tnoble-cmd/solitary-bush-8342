@@ -17,4 +17,20 @@
     </ul>
 
     <h5>Total Cost: <%= @recipe.total_cost %></h5>
+
+    <h5>Missing something? Add an ingredient to this recipe:</h5>
+    <%= form_with url: "/recipes/#{@recipe.id}", method: :post, local: true do |form|%>
+        <div>
+            <%= form.label :name, "Ingredient" %>
+            <%= form.text_area :name %>
+        </div>
+        <div>
+            <%= form.submit "Add Ingredient" %>
+        </div>
+        <% if flash[:error]%>
+            <div>
+                <%= flash[:error] %>
+            </div>
+        <% end %>
+    <% end %>
 </div>
